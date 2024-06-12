@@ -1,12 +1,13 @@
 from transformers import pipeline
 
 
-class Summarizer:
+class SummarizerEn:
     def __init__(self):
-        self.internalSummarizerModel = pipeline("summarization", model="facebook/bart-large-cnn")
+        self.internalSummarizerModel = pipeline("summarization", model="Samir001/ResumeSummary-t5-Wang-Arora")
+
 
     def summarize(self, text):
         return self.internalSummarizerModel(text, max_length=130, min_length=30, do_sample=False)[0]['summary_text']
 
 
-summarizer = Summarizer()
+summarizerEn = SummarizerEn()
